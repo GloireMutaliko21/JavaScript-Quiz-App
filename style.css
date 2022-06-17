@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Raleway:wght@100&family=Roboto:wght@100&display=swap');
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Inter';
+}
+
+body {
+    background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
+    background-blend-mode: darken;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    max-width: min-content;
+    padding: 2em 0;
+    background: #FFFFFF;
+    border-radius: 0px;
+}
+
+h1,
+.description {
+    text-align: center;
+}
+
+.description {
+    height: 126;
+    font-style: normal;
+    font-size: 20px;
+    height: 126px;
+    width: 491px;
+}
+
+.home-form {
+    margin: 0 2em;
+}
+
+label {
+    display: block;
+}
+
+input {
+    margin: 0.5em 0 1.5em;
+    height: 35px;
+    width: 100%;
+    border: 1px solid #bbb8b8;
+}
+
+#submit {
+    height: 37px;
+    width: 200px;
+    border: none;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    background: #028A3D;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+.myButton{
+    text-align: center;
+}
