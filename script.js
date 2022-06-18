@@ -31,6 +31,22 @@ setInterval(() => {
 //   });
 // });
 
+let border = document.querySelectorAll('input[type="radio"]');
+border.forEach((label, index) => {
+  label.addEventListener("change", function (e) {
+    for (let i = 0; i < border.length; i++) {
+      boutonsRadioDiv[i].style.border = "1px solid #bbb8b8";
+      boutonsRadioDiv[i].style.fontWeight = "400";
+      boutonsRadioDiv[i].style.color = "";
+    }
+    if (border[index].checked != false) {
+      boutonsRadioDiv[index].style.border = "1px solid #028A3D";
+      boutonsRadioDiv[index].style.color = "#028A3D";
+      boutonsRadioDiv[index].style.fontWeight = "600";
+    }
+  });
+});
+
 // Cette fonction vérifie si une option est cochée pour activer le bouton suivant
 
 function check() {
@@ -49,4 +65,13 @@ selected.forEach((radio, idx) => {
   radio.addEventListener("change", function (e) {
     check();
   });
+});
+
+document.getElementById("quitter").addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(border);
+  console.log(border[0].checked);
+  console.log(border[1].checked);
+  console.log(border[2].checked);
+  console.log(border[3].checked);
 });
