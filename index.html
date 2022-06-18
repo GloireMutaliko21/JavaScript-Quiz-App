@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JavaScript-Quiz App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>JavaScript-Quiz App</title>
-</head>
+  <body>
+    <main>
+      <section id="accueil" class="main-content">
+        <h1 class="">JavaScript Quiz</h1>
 
-<body>
-  <main>
-    <section id="accueil" class="main-content">
-      <h1 class="">JavaScript Quiz</h1>
-
-      <p class="description">
-        Evaluez vos compétences en JavaScript en répondant aux questions que
-        nous avons spécialement sélectionnées pour vous. <br />C'est fun et
-        c'est gratuit.
-      </p>
-      <form class="home-form">
-        <label for="name">Nom</label>
-        <input type="text" id="nom" placeholder="Gloire" class="text-fields" />
-        <label for="mail">E-mail</label>
-        <input type="e-mail" id="mail" placeholder="mufunyig@gmail.com" class="text-fields" />
-        <div class="myButton">
-          <button id="submit" class="bouton">Commencer</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- Quiz section -->
-    <section id="quiz" class="main-content">
-      <h5 class="">
-        Dans quel balise HTML plaçons-nous le code JavaScript ?
-      </h5>
-
-      <div class="progress">
-        <span class="progress-questions">Question 1/15</span>
-        <span id="progressTime"></span>
-      </div>
-      <div class="progress-bar">
-        <div class="font-progress-bar"></div>
-      </div>
-      <form class="home-form">
-        <div class="radio-bouton">
-          <label for="choix1">
-            <input type="radio" id="choix1" name="choix" /> <span>La balise js</span> 
-          </label>
-        </div>
-        <div class="radio-bouton">
-          <label for="choix2">
-            <input type="radio" id="choix2" name="choix" /> <span>La balise javascript</span> 
-          </label>
-        </div>
-        <div class="radio-bouton">
-          <label for="choix3">
-            <input type="radio" id="choix3" name="choix" /> <span>La balise script</span> 
-          </label>
-        </div>
-        <div class="radio-bouton">
-          <label for="choix4">
-            <input type="radio" id="choix4" name="choix" /> <span>La balise rel</span> 
-          </label>
-        </div>
-        <div class="quitter-suivant">
-          <div class="">
-            <button id="quitter" class="bouton">Quitter</button>
-          </div>
+        <p class="description">
+          Evaluez vos compétences en JavaScript en répondant aux questions que
+          nous avons spécialement sélectionnées pour vous. <br />C'est fun et
+          c'est gratuit.
+        </p>
+        <form class="home-form">
+          <label for="name">Nom</label>
+          <input
+            type="text"
+            id="nom"
+            placeholder="Gloire"
+            class="text-fields"
+          />
+          <label for="mail">E-mail</label>
+          <input
+            type="e-mail"
+            id="mail"
+            placeholder="mufunyig@gmail.com"
+            class="text-fields"
+          />
           <div class="myButton">
-            <button id="suivant" class="bouton" disabled>Commencer</button>
+            <button id="submit" class="bouton">Commencer</button>
           </div>
-        </div>
+        </form>
+      </section>
 
-        </div>
-      </form>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
+      <!-- Quiz section -->
+      <section id="quiz" class="main-content">
+        <h5 class="">
+          Dans quel balise HTML plaçons-nous le code JavaScript ?
+        </h5>
 
+        <div class="progress">
+          <span class="progress-questions">Question 1/15</span>
+          <span id="progressTime"></span>
+        </div>
+        <div class="progress-bar">
+          <div class="font-progress-bar"></div>
+        </div>
+        <form class="home-form">
+          <div class="radio-bouton">
+            <label for="choix1">
+              <input type="radio" id="choix1" name="choix" value="1" />
+              <span>La balise js</span>
+            </label>
+          </div>
+          <div class="radio-bouton">
+            <label for="choix2">
+              <input type="radio" id="choix2" name="choix" value="2" />
+              <span>La balise javascript</span>
+            </label>
+          </div>
+          <div class="radio-bouton">
+            <label for="choix3">
+              <input type="radio" id="choix3" name="choix" value="3" />
+              <span>La balise script</span>
+            </label>
+          </div>
+          <div class="radio-bouton">
+            <label for="choix4">
+              <input type="radio" id="choix4" name="choix" value="4" />
+              <span>La balise rel</span>
+            </label>
+          </div>
+          <div class="quitter-suivant">
+            <div class="">
+              <button id="quitter" class="bouton">Quitter</button>
+            </div>
+            <div class="myButton">
+              <button id="suivant" class="bouton" disabled>Suivant</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -126,7 +126,7 @@ label {
     width: 100%;
 }
 
-.radio-bouton>label {
+.radio-bouton label{
     height: 25px;
     border: 1px solid #bbb8b8;
     margin: 20px 7px;
@@ -134,6 +134,10 @@ label {
     cursor: pointer;
 }
 
+/* .radio-bouton label{
+    content: '';
+    border: 1px solid red;
+} */
 
 input[type=radio] {
     cursor: pointer;
@@ -141,11 +145,11 @@ input[type=radio] {
     position: absolute;
 }
 
-[type="radio"]:checked+span:before {
+[type="radio"]:checked+span::before {
     background: #028A3D;
 }
 
-[type="radio"]+span:before {
+[type="radio"]+span::before {
     content: '';
     width: 15px;
     height: 15px;
@@ -163,8 +167,6 @@ input[type=radio] {
     display: flex;
     justify-content: space-between;
 }
-
-/* #suivant:disabled */
 
 #quitter {
     background: #EC880C;
