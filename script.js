@@ -6,6 +6,8 @@ let boutonsRadioDiv = document.querySelectorAll(".radio-bouton label");
 let selected = document.querySelectorAll('input[type="radio"]');
 let idQuestion = 1;
 let nombreQuestion = document.querySelector(".progress-questions");
+let score = 0;
+let reponse = "";
 
 //Enoncé de la question
 let idEnonce = document.getElementById("enonce");
@@ -41,7 +43,7 @@ const questions = [
       'script src="myscript.js"',
       "Tout les réponses sont vrais",
     ],
-    reponse: '<script src="myscript.js">',
+    reponse: 'script src="myscript.js"',
   },
 
   {
