@@ -81,6 +81,66 @@ const questions = [
     assertions: ["if a <> 2", "if (a != 2)", "if a =! 2 then", "if (a <> 2)"],
     reponse: "if (a != 2)",
   },
+  {
+    enonce:
+      "Comment créer une fonction en JavaScript?",
+    assertions: ["function f()", "function = f()", "function:f()", "Aucune de ces réponses n’est vraie."],
+    reponse: "function f()",
+  },
+  {
+    enonce:
+      "Quelle est la syntaxe correcte pour vérifier la valeur de « c » ?",
+    assertions: ['if (c == "XYZ") then { } else { }', 'if (c = "XYZ") then { } else { }', 'if (c == "XYZ") { } else { }', 'if (c = "XYZ") { } else { }'],
+    reponse: 'if (c == "XYZ") { } else { }',
+  },
+  {
+    enonce:
+      "Quel est le bon endroit pour insérer un code JavaScript?",
+    assertions: ["La section head", "Les deux sections head et body sont correctes", "La section body", "Aucune de ces réponses n’est vraie."],
+    reponse: "Les deux sections head et body sont correctes",
+  },
+  {
+    enonce:
+      "Comment écrivez-vous « Hello World » dans une boîte d’alerte?",
+    assertions: ['msg("Hello World");', 'alert("Hello World");', 'msgBox("Hello World");', 'alertBox("Hello World");'],
+    reponse: 'alert("Hello World");',
+  },
+  {
+    enonce:
+      "Quel est l’objet qui se trouve dans TOP de la racine en JavaScript ?",
+    assertions: ["url", "top", "window", "document"],
+    reponse: "window",
+  },
+  {
+    enonce:
+      "Comment trouvez-vous le nombre avec la plus grande valeur de « a » et « b »?",
+    assertions: ["Math.ceil(a, b)", "Math.max(a, b)", "ceil(a, b)", "top(a, b)"],
+    reponse: "Math.max(a, b)",
+  },
+  {
+    enonce:
+      "Comment pouvez-vous ajouter un commentaire dans un code JavaScript?",
+    assertions: ["//Ceci est un commentaire", '"Ceci est un commentaire"', "vide", "#Ceci est un commentaire"],
+    reponse: "//Ceci est un commentaire",
+  },
+  {
+    enonce:
+      "Comment arrondir le nombre 3.12 à un nombre entier plus proche?",
+    assertions: ["Math.round(3.12)", "Math.rnd(3.12)", "float(3.12)", "Math.float(3.12)"],
+    reponse: "Math.round(3.12)",
+  },
+  {
+    enonce:
+      "Quelle est la syntaxe correct de la boucle while?",
+    assertions: ["while i = 1 to 5", "while (i <= 5)", "while (i=0; i <= 5; i++)", "while (i <= 5; i++)"],
+    reponse: "while (i <= 5)",
+  },
+  {
+    enonce:
+      "Quelle est la syntaxe correct de la boucle for?",
+    assertions: ["for (i <= 10; i++)", "for i = 1 to 10", "for (i = 0; i <= 10)", "for (i = 0; i <= 10; i++)"],
+    reponse: "for (i = 0; i <= 10; i++)",
+  },
 ];
 
 //Vérification input nom
@@ -162,7 +222,7 @@ function result() {
   quiz.style.display = "none";
   resultatQuiz.style.display = "flex";
   finalScore.textContent = score + "/15"
-  if (score < 3) {
+  if (score <= 7) {
     imageResultat.innerHTML = '<svg width="174" height="174" viewBox="0 0 174 174" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116.464 60.2891C116.464 59.5414 115.852 58.9297 115.105 58.9297L103.89 58.9807L86.9996 79.1164L70.1264 58.9977L58.8945 58.9467C58.1469 58.9467 57.5352 59.5414 57.5352 60.3061C57.5352 60.6289 57.6541 60.9348 57.858 61.1897L79.9648 87.5275L57.858 113.848C57.6527 114.097 57.5388 114.409 57.5352 114.732C57.5352 115.48 58.1469 116.091 58.8945 116.091L70.1264 116.04L86.9996 95.9047L103.873 116.023L115.088 116.074C115.835 116.074 116.447 115.48 116.447 114.715C116.447 114.392 116.328 114.086 116.124 113.831L94.0514 87.5105L116.158 61.1727C116.362 60.9348 116.464 60.6119 116.464 60.2891Z" fill="#FF3838"/><path d="M87 11.0469C44.9613 11.0469 10.875 45.1332 10.875 87.1719C10.875 129.211 44.9613 163.297 87 163.297C129.039 163.297 163.125 129.211 163.125 87.1719C163.125 45.1332 129.039 11.0469 87 11.0469ZM87 150.383C52.098 150.383 23.7891 122.074 23.7891 87.1719C23.7891 52.2699 52.098 23.9609 87 23.9609C121.902 23.9609 150.211 52.2699 150.211 87.1719C150.211 122.074 121.902 150.383 87 150.383Z" fill="#FF3838"/></svg>';
   }
 }
@@ -176,6 +236,9 @@ suivant.addEventListener("click", function (e) {
     result();
   } else {
     questionSuivant();
+  }
+  if (idQuestion == 15) {
+    suivant.textContent = "Terminer"
   }
 
 });
