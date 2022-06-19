@@ -2,6 +2,7 @@ const acc = document.getElementById("submit");
 const quiz = document.getElementById("quiz");
 const resultatQuiz = document.getElementById("resultat");
 const imageResultat = document.getElementById('image')
+const retourAcc = document.getElementById('retour-accueil');
 let countProgress = 100;
 
 let boutonsRadioDiv = document.querySelectorAll(".radio-bouton label");

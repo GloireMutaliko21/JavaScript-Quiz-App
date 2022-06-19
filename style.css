@@ -88,6 +88,7 @@ label {
 
 #retour-accueil{
     background: #0880D6;
+    cursor: pointer;
 }
 
 #submit:hover {
