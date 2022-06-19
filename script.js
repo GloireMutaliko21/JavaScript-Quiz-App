@@ -22,7 +22,16 @@ let ass4 = document.getElementById("ass4");
 //Questions
 const questions = [
   {},
-  {},
+  {
+    enonce: "Dans quel balise HTML plaçons-nous le code JavaScript ?",
+    assertions: [
+      "La balise js",
+      "La balise javascript",
+      "La balise script",
+      "La balise rel",
+    ],
+    reponse: "La balise script",
+  },
   {
     enonce: "Comment faire appelle à une fonction nommée « sum »?",
     assertions: [
@@ -69,8 +78,10 @@ function reset() {
     boutonsRadioDiv[i].style.color = "";
   }
 }
+// Fonction de cha,gement des questions
 
 function questionSuivant() {
+  scoreIncrease();
   idQuestion++;
   countProgress = 101;
   nombreQuestion.innerHTML = "Question " + idQuestion + "/15";
@@ -86,6 +97,13 @@ function questionSuivant() {
   ass2.innerHTML = questions[idQuestion].assertions[1];
   ass3.innerHTML = questions[idQuestion].assertions[2];
   ass4.innerHTML = questions[idQuestion].assertions[3];
+}
+
+// Gestion du score selon la réponse choisie
+
+function scoreIncrease(){
+  reponse == questions[idQuestion].reponse ? score++ : score;
+  console.log(score);
 }
 
 //Passer à la question suivante
@@ -112,7 +130,7 @@ setInterval(() => {
   if (countProgress < 0) {
     questionSuivant();
   }
-}, 600);
+}, 50);
 
 //Changer le style de bordure pour le choix sélectionné
 
@@ -145,5 +163,6 @@ selected.forEach((radio, idx) => {
   radio.addEventListener("change", function (e) {
     check();
     border(idx);
+    reponse = questions[idQuestion].assertions[idx];
   });
 });
