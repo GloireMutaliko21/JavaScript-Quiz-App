@@ -26,7 +26,8 @@ main {
 
 }
 
-#quiz {
+#quiz,
+#resultat {
     display: none;
 }
 
@@ -83,6 +84,10 @@ label {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+}
+
+#retour-accueil{
+    background: #0880D6;
 }
 
 #submit:hover {
@@ -172,4 +177,17 @@ button:disabled {
     cursor: not-allowed;
     background-color: #9dc2ad;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#resultat{
+    height: 460px;
+    justify-content: center;
+    text-align: center;
+}
+svg{
+    margin: 1.5em;
+}
+
+#finalScore{
+    margin-bottom: 1em;
 }
