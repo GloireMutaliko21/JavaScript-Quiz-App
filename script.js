@@ -6,6 +6,8 @@ const quitter = document.getElementById('quitter');
 const finalScore = document.getElementById('finalScore');
 const nom = document.getElementById('nom');
 const mail = document.getElementById('mail');
+const namePlayer = document.getElementById('name');
+const emailPlayer = document.getElementById('email');
 
 let countProgress = 100;
 
@@ -168,8 +170,9 @@ function result() {
 //Passer à la question suivante ou au résultat
 suivant.addEventListener("click", function (e) {
   e.preventDefault();
-  if (idQuestion >= 5) {
+  if (idQuestion >= 15) {
     scoreIncrease();
+    identite();
     result();
   } else {
     questionSuivant();
@@ -180,6 +183,7 @@ suivant.addEventListener("click", function (e) {
 //Quitter le jeu
 quitter.addEventListener("click", function (e) {
   e.preventDefault();
+  identite();
   result();
 })
 
@@ -190,6 +194,8 @@ acc.addEventListener("click", function (e) {
   let domaine = x.substring(x.lastIndexOf('.') + 1, x.length).length; // longueur du nom de domaine
   const i = domaine > 1 && domaine < 4 && verifyNom() && validateEmail(x); // Booléen mail valide
   if (i) {
+    player.name = nom.value;
+    player.mail = x;
     document.getElementById("accueil").style.display = "none";
     quiz.style.display = "flex";
   } else {
@@ -208,7 +214,14 @@ setInterval(() => {
     countProgress--;
   }
   if (countProgress < 0) {
-    questionSuivant();
+    if (idQuestion >= 15) {
+      scoreIncrease();
+      identite();
+      result();
+      idQuestion = 1;
+    } else {
+      questionSuivant();
+    }
   }
 }, 600);
 
@@ -246,3 +259,10 @@ selected.forEach((radio, idx) => {
     reponse = questions[idQuestion].assertions[idx];
   });
 });
+
+//identifiants
+
+function identite() {
+  namePlayer.innerHTML = player.name;
+  emailPlayer.innerHTML = player.mail;
+}
