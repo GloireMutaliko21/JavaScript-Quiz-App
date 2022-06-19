@@ -73,6 +73,12 @@ label {
     border: 1px solid #bbb8b8;
 }
 
+.erreur {
+    color: red;
+    font-weight: 600;
+    font-size: 10px;
+}
+
 .bouton {
     height: 37px;
     width: 180px;
@@ -86,7 +92,7 @@ label {
     line-height: 24px;
 }
 
-#retour-accueil{
+#retour-accueil {
     background: #0880D6;
     cursor: pointer;
 }
@@ -132,7 +138,7 @@ label {
     width: 100%;
 }
 
-.radio-bouton label{
+.radio-bouton label {
     height: 25px;
     border: 1px solid #bbb8b8;
     margin: 20px 7px;
@@ -180,15 +186,16 @@ button:disabled {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-#resultat{
+#resultat {
     height: 460px;
     justify-content: center;
     text-align: center;
 }
-svg{
+
+svg {
     margin: 1.5em;
 }
 
-#finalScore{
+#finalScore {
     margin-bottom: 1em;
 }

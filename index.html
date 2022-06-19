@@ -21,11 +21,13 @@
       </p>
       <form class="home-form">
         <label for="name">Nom</label>
-        <input type="text" id="nom" placeholder="Gloire" class="text-fields" required/>
+        <input type="text" id="nom" placeholder="Gloire" class="text-fields" required />
+        <span class="erreur" id="erreurNom"></span>
         <label for="mail">E-mail</label>
-        <input type="e-mail" id="mail" placeholder="mufunyig@gmail.com" class="text-fields" required/>
+        <input type="e-mail" id="mail" placeholder="mufunyig@gmail.com" class="text-fields" required />
+        <span class="erreur" id="erreurMail"></span>
         <div class="myButton">
-          <button id="submit" class="bouton">Commencer</button>
+          <button type="submit" id="submit" class="bouton">Commencer</button>
         </div>
       </form>
     </section>

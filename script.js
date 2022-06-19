@@ -3,7 +3,16 @@ const quiz = document.getElementById("quiz");
 const resultatQuiz = document.getElementById("resultat");
 const imageResultat = document.getElementById('image')
 const quitter = document.getElementById('quitter');
+const finalScore = document.getElementById('finalScore');
+const nom = document.getElementById('nom');
+const mail = document.getElementById('mail');
+
 let countProgress = 100;
+
+let player = {
+  "name": "",
+  "mail": ""
+}
 
 let boutonsRadioDiv = document.querySelectorAll(".radio-bouton label");
 let selected = document.querySelectorAll('input[type="radio"]');
@@ -72,6 +81,44 @@ const questions = [
   },
 ];
 
+//Vérification input nom
+
+function verifyNom() {
+  if (nom.value.length == 0) {
+    erreurNom.innerHTML = "Veuillez renseigner votre nom";
+    return false;
+  } else if (nom.value.length <= 2) {
+    erreurNom.innerHTML = "Entrer un nom valide"
+    return false;
+  } else {
+    erreurNom.innerHTML = ""
+  }
+  return true;
+}
+
+//Vérification de l'adresse mail
+
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+
+nom.addEventListener("input", function () {
+  verifyNom();
+});
+
+mail.addEventListener("input", function () {
+  if (validateEmail(mail.value)) {
+    erreurMail.innerHTML = "";
+  } else {
+    mail.value.length == 0 ? erreurMail.innerHTML = "Veuillez entre votre mail" : erreurMail.innerHTML = "Entrer un e-mail valide"
+  }
+
+});
 //Boucle réinitialiser les radio-boutons
 
 function reset() {
@@ -112,6 +159,7 @@ function scoreIncrease() {
 function result() {
   quiz.style.display = "none";
   resultatQuiz.style.display = "flex";
+  finalScore.textContent = score + "/15"
   if (score < 3) {
     imageResultat.innerHTML = '<svg width="174" height="174" viewBox="0 0 174 174" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116.464 60.2891C116.464 59.5414 115.852 58.9297 115.105 58.9297L103.89 58.9807L86.9996 79.1164L70.1264 58.9977L58.8945 58.9467C58.1469 58.9467 57.5352 59.5414 57.5352 60.3061C57.5352 60.6289 57.6541 60.9348 57.858 61.1897L79.9648 87.5275L57.858 113.848C57.6527 114.097 57.5388 114.409 57.5352 114.732C57.5352 115.48 58.1469 116.091 58.8945 116.091L70.1264 116.04L86.9996 95.9047L103.873 116.023L115.088 116.074C115.835 116.074 116.447 115.48 116.447 114.715C116.447 114.392 116.328 114.086 116.124 113.831L94.0514 87.5105L116.158 61.1727C116.362 60.9348 116.464 60.6119 116.464 60.2891Z" fill="#FF3838"/><path d="M87 11.0469C44.9613 11.0469 10.875 45.1332 10.875 87.1719C10.875 129.211 44.9613 163.297 87 163.297C129.039 163.297 163.125 129.211 163.125 87.1719C163.125 45.1332 129.039 11.0469 87 11.0469ZM87 150.383C52.098 150.383 23.7891 122.074 23.7891 87.1719C23.7891 52.2699 52.098 23.9609 87 23.9609C121.902 23.9609 150.211 52.2699 150.211 87.1719C150.211 122.074 121.902 150.383 87 150.383Z" fill="#FF3838"/></svg>';
   }
@@ -121,6 +169,7 @@ function result() {
 suivant.addEventListener("click", function (e) {
   e.preventDefault();
   if (idQuestion >= 5) {
+    scoreIncrease();
     result();
   } else {
     questionSuivant();
@@ -137,8 +186,16 @@ quitter.addEventListener("click", function (e) {
 //Passer aux questions après avoir fourni le nom et le mail
 acc.addEventListener("click", function (e) {
   e.preventDefault();
-  document.getElementById("accueil").style.display = "none";
-  quiz.style.display = "flex";
+  const x = mail.value; // Mail value
+  let domaine = x.substring(x.lastIndexOf('.') + 1, x.length).length; // longueur du nom de domaine
+  const i = domaine > 1 && domaine < 4 && verifyNom() && validateEmail(x); // Booléen mail valide
+  if (i) {
+    document.getElementById("accueil").style.display = "none";
+    quiz.style.display = "flex";
+  } else {
+    x.length == 0 ? erreurMail.innerHTML = "Veuillez entre votre mail" : erreurMail.innerHTML = "Entrer un e-mail valide"
+  };
+
 });
 
 //ProgressBar Timer
