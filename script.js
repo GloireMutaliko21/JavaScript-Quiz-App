@@ -195,7 +195,8 @@ function reset() {
 function questionSuivant() {
   scoreIncrease();
   idQuestion++;
-  countProgress = 101;
+  countProgress = 100;
+  secondes = 60;
   nombreQuestion.innerHTML = "Question " + idQuestion + "/15";
   suivant.disabled = true;
   for (let i = 0; i < selected.length; i++) {
@@ -254,8 +255,11 @@ quitter.addEventListener("click", function (e) {
 acc.addEventListener("click", function (e) {
   e.preventDefault();
   const x = mail.value; // Mail value
-  let domaine = x.substring(x.lastIndexOf('.') + 1, x.length).length; // longueur du nom de domaine
-  const i = domaine > 1 && domaine < 4 && verifyNom() && validateEmail(x); // Booléen mail valide
+  let domaine = x.substring(x.lastIndexOf('.') + 1, x.length).length; // longueur du tld
+  let nomDomaine = x.substring(x.indexOf('@') + 1, x.lastIndexOf('.')).length//longuer du domaine
+  let idUser = x.substring(0, x.indexOf('@')).length;
+
+  const i = domaine > 1 && domaine < 4 && nomDomaine > 2 && idUser > 2 && verifyNom() && validateEmail(x); // Booléen mail valide
   if (i) {
     player.name = nom.value;
     player.mail = x;
@@ -273,7 +277,6 @@ let progressFont = document.querySelector(".font-progress-bar");
 setInterval(() => {
   if (countProgress >= 0 && quiz.style.display == "flex") {
     progressFont.style.width = countProgress + "%";
-    progressTime.innerHTML = Math.floor(countProgress / 1.666666667);
     countProgress--;
   }
   if (countProgress < 0) {
@@ -288,6 +291,16 @@ setInterval(() => {
   }
 }, 600);
 
+let secondes = 60;
+
+setInterval(function () {
+  if (secondes > 0) {
+    if (quiz.style.display == "flex") {
+      document.getElementById("progressTime").innerHTML = secondes;
+      secondes--;
+    }
+  }
+}, 1000);
 //Changer le style de bordure pour le choix sélectionné
 
 function border(index) {
