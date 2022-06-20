@@ -139,7 +139,7 @@ label {
 }
 
 .radio-bouton label {
-    height: 25px;
+    height: max-content;
     border: 1px solid #bbb8b8;
     margin: 20px 7px;
     padding: 5px;
@@ -198,4 +198,97 @@ svg {
 
 #finalScore {
     margin-bottom: 1em;
+}
+
+@media screen and (max-width: 510px) {
+    .main-content {
+        max-width: 480px;
+        min-width: 400px;
+    }
+
+}
+
+@media screen and (max-width: 488px) {
+    .main-content {
+        max-width: 458px;
+        min-width: 280px;
+    }
+
+    .description {
+        height: 126px;
+        width: 350px;
+        margin-bottom: 60px;
+    }
+
+    #quitter,
+    #suivant {
+        width: 130px;
+    }
+
+    .progress-bar {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 331px) {
+    #quitter,
+    #suivant {
+        width: 100px;
+    }
+    .progress-bar {
+        width: 77%;
+    }
+    .description {
+        width: 320px;
+        margin-bottom: 60px;
+    }
+
+}
+
+@media screen and (max-width: 310px) {
+    .main-content {
+        max-width: 300px;
+        min-width: 250px;
+    }
+    .description {
+        width: 280px;
+        height: 190;
+        margin-bottom: 60px;
+    }
+
+}
+
+@media screen and (max-width: 275px) {
+    .main-content {
+        max-width: 270px;
+        min-width: 250px;
+    }
+    .description {
+        width: 260px;
+    }
+    #quitter,
+    #suivant {
+        width: 80px;
+    }
+    .progress-bar {
+        width: 72%;
+    }
+
+}
+
+@media screen and (max-width: 250px) {
+    .main-content {
+        max-width: 240px;
+        min-width: 230px;
+    }
+    .description {
+        width: 230px;
+    }
+    #quitter,
+    #suivant {
+        width: 80px;
+    }
+    .progress-bar {
+        width: 69%;
+    }
+
 }
