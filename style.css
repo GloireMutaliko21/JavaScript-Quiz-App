@@ -147,9 +147,7 @@ label {
 }
 
 input[type=radio] {
-    cursor: pointer;
-    clip: rect(0 0 0 0);
-    position: absolute;
+    display: none;
 }
 
 [type="radio"]:checked+span::before {
@@ -229,14 +227,18 @@ svg {
         width: 80%;
     }
 }
+
 @media screen and (max-width: 331px) {
+
     #quitter,
     #suivant {
         width: 100px;
     }
+
     .progress-bar {
         width: 77%;
     }
+
     .description {
         width: 320px;
         margin-bottom: 60px;
@@ -249,6 +251,7 @@ svg {
         max-width: 300px;
         min-width: 250px;
     }
+
     .description {
         width: 280px;
         height: 190;
@@ -262,13 +265,16 @@ svg {
         max-width: 270px;
         min-width: 250px;
     }
+
     .description {
         width: 260px;
     }
+
     #quitter,
     #suivant {
         width: 80px;
     }
+
     .progress-bar {
         width: 72%;
     }
@@ -280,13 +286,16 @@ svg {
         max-width: 240px;
         min-width: 230px;
     }
+
     .description {
         width: 230px;
     }
+
     #quitter,
     #suivant {
         width: 80px;
     }
+
     .progress-bar {
         width: 69%;
     }
