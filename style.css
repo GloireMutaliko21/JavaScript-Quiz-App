@@ -13,10 +13,8 @@ body {
 }
 
 body {
-    /* background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%); */
-    /* background-blend-mode: darken; */
-    background-color: #EC880C;
-
+    background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
+    background-blend-mode: darken;
 }
 
 main {
