@@ -231,18 +231,25 @@ function result() {
 //Passer à la question suivante ou au résultat
 suivant.addEventListener("click", function (e) {
   e.preventDefault();
-  if (idQuestion >= 15) {
-    scoreIncrease();
-    identite();
-    result();
-  } else {
-    questionSuivant();
-  }
+  accesSuivResult()
   if (idQuestion == 15) {
     suivant.textContent = "Terminer"
   }
 
 });
+
+//Accès resultat
+
+function accesSuivResult() {
+  if (idQuestion >= 15) {
+    scoreIncrease();
+    identite();
+    result();
+    idQuestion = 1;
+  } else {
+    questionSuivant();
+  }
+}
 
 //Quitter le jeu
 quitter.addEventListener("click", function (e) {
@@ -280,14 +287,7 @@ setInterval(() => {
     countProgress--;
   }
   if (countProgress < 0) {
-    if (idQuestion >= 15) {
-      scoreIncrease();
-      identite();
-      result();
-      idQuestion = 1;
-    } else {
-      questionSuivant();
-    }
+    accesSuivResult();
   }
 }, 600);
 
